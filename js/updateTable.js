@@ -7,7 +7,11 @@ let gameMap = [
 ];
 
 let currentPos = [2, 2];
-let prevPost = [2,2];
+let prevPos = [2,2];
+
+function initialize(){
+  renderTable(gameMap);
+}
 
 function updateMap(newX = currentPos[0], newY = currentPos[1]) {
 // "P" player
@@ -22,7 +26,7 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
     map[(currentPos[0], currentPos[1])] === "c";
   }
 
-  gameMap[(newX, newY)] = "P";
+  gameMap[newX, newY] = "P";
   renderTable(gameMap);
 
   
@@ -55,9 +59,11 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
 function renderTable(GameMap){
   
   const tbody = document.getElementById("mapbody");
-  tbody.innerHTML() = " ";
-  
+  tbody.innerText = " ";
+
+  console.log(GameMap);
   for(const row of GameMap){
+
     const tr = document.createElement('tr');
     const td0 = document.createElement('td');
     const td1 = document.createElement('td');
@@ -71,37 +77,37 @@ function renderTable(GameMap){
     td3.innerText = row[3];
     td4.innerText = row[4];
     
+    tr.append(td0);
     tr.append(td1);
     tr.append(td2);
     tr.append(td3);
     tr.append(td4);
-    tr.append(td5);
 
     tbody.append(tr);
   }
 }
 function moveUp() {
-  prevPost = currentPos;
-  currentPos[0] += 1;
+  prevPos = currentPos;
+  currentPos[0] -= 1;
   updateMap(currentPos[0] ,)
 }
 function moveDown() {
-    prevPost = currentPos;
+    prevPos = currentPos;
 
-    currentPos[0] -= 1;
+    currentPos[0] += 1;
   updateMap(currentPos[0],)
 }
 function moveLeft() {
-    prevPost = currentPos;
+    prevPos = currentPos;
 
     currentPos[1] -= 1;
-  updateMap(,currentPos[1])
+  updateMap(currentPos[0],currentPos[1])
 }
 function moveRight() {
-    prevPost = currentPos;
+    prevPos = currentPos;
 
     currentPos[1] += 1;
-    updateMap(,currentPos[1])
+    updateMap(currentPos[0],currentPos[1])
 }
 
 
