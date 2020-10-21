@@ -13,12 +13,12 @@
         <div class="row">
             <div class="col-md-3">
                 <h3>Controls</h3>
-                <button onClick="updateMap" type="button" class="btn btn-primary">W</button>
-                <button onClick="updateMap" type="button" class="btn btn-primary">A</button>
-                <button onClick="updateMap" type="button" class="btn btn-primary">S</button>
-                <button onClick="updateMap" type="button" class="btn btn-primary">D</button>
-                <button onClick="heal" type="button" class="btn btn-danger">Attack!</button>
-                <button onClick="attack" type="button" class="btn btn-success">Heal!</button>
+                <button onClick="moveUp()" type="button" class="btn btn-primary">W</button>
+                <button onClick="moveDown()" type="button" class="btn btn-primary">A</button>
+                <button onClick="moveLeft()" type="button" class="btn btn-primary">S</button>
+                <button onClick="moveRight()" type="button" class="btn btn-primary">D</button>
+                <button onClick="heal()" type="button" class="btn btn-danger">Attack!</button>
+                <button onClick="attack()" type="button" class="btn btn-success">Heal!</button>
             </div>
             <div class="col-md-6">
                 <div id="map-wrapper">
@@ -65,7 +65,7 @@
             <div class="col-md-3">
                 <h3>Event Log</h3>
                 <div id="logger-wrapper">
-                    
+
                 </div>
             </div>
         </div>
