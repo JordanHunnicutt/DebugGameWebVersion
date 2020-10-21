@@ -26,7 +26,7 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
     map[(currentPos[0], currentPos[1])] === "c";
   }
 
-  gameMap[newX, newY] = "P";
+  gameMap[newX][newY] = "P";
   renderTable(gameMap);
 
   
