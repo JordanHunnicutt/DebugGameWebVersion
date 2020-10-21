@@ -23,8 +23,63 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
   }
 
   gameMap[(newX, newY)] = "P";
+  renderTable(gameMap);
+
+  
 }
 
+/**
+ * function renderTable(monsters){
+    for (const monster of mockedMonsters){
+    const tr = document.createElement('tr');
+    const nameTd = document.createElement('td');
+    const typeTd = document.createElement('td');
+    const furryTd = document.createElement('td');
+    const pawsTd = document.createElement('td');
+
+    nameTd.innerText = monster.name;
+    typeTd.innerText = monster.type.type;
+    furryTd.innerText = monster.type.furry;
+    pawsTd.innerText = monster.type.paws;
+
+    tr.append(nameTd);
+    tr.append(typeTd);
+    tr.append(furryTd);
+    tr.append(pawsTd);
+
+    document.getElementById("hallowsTableBody").append(tr);
+}
+}
+ * 
+ */
+function renderTable(GameMap){
+  
+  const tbody = document.getElementById("mapbody");
+  tbody.innerHTML() = " ";
+  
+  for(const row of GameMap){
+    const tr = document.createElement('tr');
+    const td0 = document.createElement('td');
+    const td1 = document.createElement('td');
+    const td2 = document.createElement('td');
+    const td3 = document.createElement('td');
+    const td4 = document.createElement('td');
+
+    td0.innerText = row[0];
+    td1.innerText = row[1];
+    td2.innerText = row[2];
+    td3.innerText = row[3];
+    td4.innerText = row[4];
+    
+    tr.append(td1);
+    tr.append(td2);
+    tr.append(td3);
+    tr.append(td4);
+    tr.append(td5);
+
+    tbody.append(tr);
+  }
+}
 function moveUp() {
   prevPost = currentPos;
   currentPos[0] += 1;
