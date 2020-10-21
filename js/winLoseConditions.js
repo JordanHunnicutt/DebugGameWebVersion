@@ -42,3 +42,5 @@ function checkRooms(numRooms){
         updateLog("You have "+numRooms+" enemies to defeat");
     }
 }
+
+initializeConditions();
