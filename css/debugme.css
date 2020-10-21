@@ -1,0 +1,16 @@
+body {
+    background-color: white;
+}
+#logger-wrapper {
+    height: 200px;
+    width: 100%;
+    border: 1px solid black;
+    float: right;
+}
+table#map {
+    border: 3px solid black;
+    text-align: center;
+}
+table#map td {
+    border: 1px solid black;
+}
