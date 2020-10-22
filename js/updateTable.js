@@ -8,10 +8,12 @@ let gameMap = [
 
 let currentPos = [2, 2];
 let prevPos = [2,2];
-
+const player1 = new Player(name); 
+const enemy1 = new Enemy();
 function initialize(){
   renderTable(gameMap);
   initializeConditions();
+  let name = prompt("What is your name?", " ");
 }
 
 function updateMap(newX = currentPos[0], newY = currentPos[1]) {
@@ -32,6 +34,10 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
   // else if(){
 
   // }
+  if(gameMap[newX][newY]==='R'){
+    
+    Battle(player1, enemy1);
+  }
   if(gameMap[newX][newY] != 'R'){
     if(gameMap[newX][newY] != 'S'){
       gameMap[newX][newY] = "P";
@@ -75,36 +81,56 @@ function renderTable(GameMap){
 function moveUp() {
   prevPos[0] = currentPos[0];
   prevPos[1] = currentPos[1];
-  currentPos[0] -= 1;
-  updateMap(currentPos[0] ,);
-  decrementPlayerScore();
-  updateLog('You moved up');
+  if(currentPos[0] != 0){
+    currentPos[0] -= 1;
+    updateMap(currentPos[0] ,);
+    decrementPlayerScore();
+    updateLog('You moved up');
+  }
+  else {
+    updateLog("why would you do that...");
+  }
 }
 function moveDown() {
   prevPos[0] = currentPos[0];
   prevPos[1] = currentPos[1];
+  if(currentPos[0]!=4){
   currentPos[0] += 1;
   updateMap(currentPos[0],);
   decrementPlayerScore();
   updateLog('You moved down');
+  }
+  else {
+    updateLog("why would you do that...");
+  }
 
 }
 function moveLeft() {
   prevPos[0] = currentPos[0];
   prevPos[1] = currentPos[1];
+  if(currentPos[1] != 0){
   currentPos[1] -= 1;
   updateMap(currentPos[0],currentPos[1]);
   decrementPlayerScore();
   updateLog('You moved left');
+  }
+  else {
+    updateLog("why would you do that...");
+  }
 
 }
 function moveRight() {
     prevPos[0] = currentPos[0];
     prevPos[1] = currentPos[1];
+    if(currentPos[1] !=  4){
     currentPos[1] += 1;
     updateMap(currentPos[0],currentPos[1]);
     decrementPlayerScore();
     updateLog('You moved right');
+    }
+    else{
+      updateLog("why would you do that...");
+    }
 }
 
 

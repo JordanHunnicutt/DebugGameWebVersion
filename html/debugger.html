@@ -10,7 +10,7 @@
     <script defer src="../js/updateLog.js"></script>
     <script defer src="../js/updateTable.js"></script>
     <script defer src="../js/winLoseConditions.js"></script>
-    <script defer src="../js/sword.js"></script>
+    <!--<script defer src="../js/sword.js"></script>-->
     <title>Debugger</title>
     </head>
     <body onload="initialize()">
@@ -38,10 +38,10 @@
                 </div>
                 <div class = row>
                     <div class="col-md-6">
-                        <button onClick="heal()" type="button" class="btn btn-danger">Attack!</button>
+                        <button disabled="true" onClick="PlayerAttack(player1, enemy1)" type="button" class="btn btn-danger">Attack!</button>
                     </div>
                     <div class="col-md-6">
-                        <button onClick="attack()" type="button" class="btn btn-success">Heal!</button>
+                        <button disabled="true" onClick="PlayerHeal(player1)" type="button" class="btn btn-success">Heal!</button>
                     </div>
                 </div>
             </div>
@@ -56,9 +56,7 @@
             </div>
             <div class="col-md-3">
                 <h3>Event Log</h3>
-                <div id="logContainer">
-
-                </div>
+                <textarea id="logContainer" style="width: 100%; min-height:500px;" disabled></textarea>
             </div>
         </div>
     </div>
