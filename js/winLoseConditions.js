@@ -43,4 +43,6 @@ function checkRooms(numRooms){
     }
 }
 
-initializeConditions();
+function getScore(){
+    return playerScore;
+}

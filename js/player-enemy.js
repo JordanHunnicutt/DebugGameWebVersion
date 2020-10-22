@@ -96,5 +96,5 @@ class Enemy{
     {
         this._strength = newStrength;
     }
-}
 
+}

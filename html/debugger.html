@@ -18,12 +18,32 @@
         <div class="row">
             <div class="col-md-3">
                 <h3>Controls</h3>
-                <button onClick="moveUp()" type="button" class="btn btn-primary">W</button>
-                <button onClick="moveDown()" type="button" class="btn btn-primary">A</button>
-                <button onClick="moveLeft()" type="button" class="btn btn-primary">S</button>
-                <button onClick="moveRight()" type="button" class="btn btn-primary">D</button>
-                <button onClick="heal()" type="button" class="btn btn-danger">Attack!</button>
-                <button onClick="attack()" type="button" class="btn btn-success">Heal!</button>
+                <div class="row">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-4">
+                        <button onClick="moveUp()" type="button" class="btn btn-primary">W</button>
+                    </div>
+                    <div class="col-md-4"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <button onClick="moveLeft()" type="button" class="btn btn-primary">A</button>
+                    </div> 
+                     <div class="col-md-4">
+                         <button onClick="moveDown()" type="button" class="btn btn-primary">S</button>
+                    </div> 
+                    <div class="col-md-4">
+                    <button onClick="moveRight()" type="button" class="btn btn-primary">D</button>
+                    </div>
+                </div>
+                <div class = row>
+                    <div class="col-md-6">
+                        <button onClick="heal()" type="button" class="btn btn-danger">Attack!</button>
+                    </div>
+                    <div class="col-md-6">
+                        <button onClick="attack()" type="button" class="btn btn-success">Heal!</button>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
                 <div id="map-wrapper">
@@ -36,7 +56,7 @@
             </div>
             <div class="col-md-3">
                 <h3>Event Log</h3>
-                <div id="logger-wrapper">
+                <div id="logContainer">
 
                 </div>
             </div>
@@ -50,7 +70,6 @@
 </body>
 </html>
 <!--
-
 <div id="controls">
         <button>?
     </div>
@@ -92,8 +111,6 @@
                 <td class="td5"></td>
             </tr>
         </table>
-
         <div id="logger-wrapper">
     </div>
-
 -->

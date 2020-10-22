@@ -61,5 +61,3 @@ const Weapon = (function () {
     }
     return Weapon;
 }());
-
-

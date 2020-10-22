@@ -1,9 +1,9 @@
 let gameMap = [
-  [0, 0, "r", 0, 0],
-  [0, 0, 0, 0, 0],
-  ["r", 0, "P", 0, "r"],
-  [0, 0, 0, 0, 0],
-  [0, 0, "r", 0, 0],
+  ['X', 'X', "r", 'X', 'X'],
+  ['X', 'X', 'X', 'X', 'X'],
+  ["r", 'X', "P", 'X', "r"],
+  ['X', 'X', 'X', 'X', 'X'],
+  ['X', 'X', "r", 'X', 'X'],
 ];
 
 let currentPos = [2, 2];
@@ -11,19 +11,19 @@ let prevPos = [2,2];
 
 function initialize(){
   renderTable(gameMap);
+  initializeConditions();
 }
 
 function updateMap(newX = currentPos[0], newY = currentPos[1]) {
 // "P" player
-  // "x" = visited spot
-  //  0 = not visited spot
-  // "r" = room
-  // "c" = closed room
-  
-  if (map[(prevPos[0], prevPos[1])] != 'r' || map[(prevPos[0], prevPos[1])] != 'c') {
-    map[(currentPos[0], currentPos[1])] === "x";
-  } else if (map[(prevPos[0], prevPos[1])] === "r") {
-    map[(currentPos[0], currentPos[1])] === "c";
+  // "O" = visited spot
+  // 'X' = not visited spot
+  // "R" = room
+  // "S" = Safe room
+  console.log(prevPos[0] + 'prevpos 0');
+  console.log(prevPos[1] + 'prevpos 1');
+  if(gameMap[prevPos[0]][prevPos[1]] != 'R'){
+    gameMap[prevPos[0]][prevPos[1]]='O';
   }
 
   gameMap[newX][newY] = "P";
@@ -32,30 +32,6 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
   
 }
 
-/**
- * function renderTable(monsters){
-    for (const monster of mockedMonsters){
-    const tr = document.createElement('tr');
-    const nameTd = document.createElement('td');
-    const typeTd = document.createElement('td');
-    const furryTd = document.createElement('td');
-    const pawsTd = document.createElement('td');
-
-    nameTd.innerText = monster.name;
-    typeTd.innerText = monster.type.type;
-    furryTd.innerText = monster.type.furry;
-    pawsTd.innerText = monster.type.paws;
-
-    tr.append(nameTd);
-    tr.append(typeTd);
-    tr.append(furryTd);
-    tr.append(pawsTd);
-
-    document.getElementById("hallowsTableBody").append(tr);
-}
-}
- * 
- */
 function renderTable(GameMap){
   
   const tbody = document.getElementById("mapbody");
@@ -87,27 +63,42 @@ function renderTable(GameMap){
   }
 }
 function moveUp() {
-  prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
   currentPos[0] -= 1;
-  updateMap(currentPos[0] ,)
+  updateMap(currentPos[0] ,);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved up');
 }
 function moveDown() {
-    prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
+  currentPos[0] += 1;
+  updateMap(currentPos[0],);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved down');
 
-    currentPos[0] += 1;
-  updateMap(currentPos[0],)
 }
 function moveLeft() {
-    prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
+  currentPos[1] -= 1;
+  updateMap(currentPos[0],currentPos[1]);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved left');
 
-    currentPos[1] -= 1;
-  updateMap(currentPos[0],currentPos[1])
 }
 function moveRight() {
-    prevPos = currentPos;
-
+    prevPos[0] = currentPos[0];
+    prevPos[1] = currentPos[1];
     currentPos[1] += 1;
-    updateMap(currentPos[0],currentPos[1])
+    updateMap(currentPos[0],currentPos[1]);
+    decrementPlayerScore();
+    checkScore(getScore());
+    updateLog('You moved right');
 }
 
 
