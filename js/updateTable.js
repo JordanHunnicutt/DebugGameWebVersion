@@ -1,9 +1,9 @@
 let gameMap = [
-  [0, 0, "r", 0, 0],
-  [0, 0, 0, 0, 0],
-  ["r", 0, "P", 0, "r"],
-  [0, 0, 0, 0, 0],
-  [0, 0, "r", 0, 0],
+  ['X', 'X', "r", 'X', 'X'],
+  ['X', 'X', 'X', 'X', 'X'],
+  ["r", 'X', "P", 'X', "r"],
+  ['X', 'X', 'X', 'X', 'X'],
+  ['X', 'X', "r", 'X', 'X'],
 ];
 
 let currentPos = [2, 2];
@@ -11,23 +11,22 @@ let prevPos = [2,2];
 
 function initialize(){
   renderTable(gameMap);
+  initializeConditions();
 }
 
 function updateMap(newX = currentPos[0], newY = currentPos[1]) {
 // "P" player
-  // "x" = visited spot
-  //  0 = not visited spot
-  // "r" = room
-  // "c" = closed room
-  console.log(newX);
-  console.log(newY);
-  if (map[(prevPos[0], prevPos[1])] != 'r' || map[(prevPos[0], prevPos[1])] != 'c') {
-    map[(currentPos[0], currentPos[1])] === "x";
-  } else if (map[(prevPos[0], prevPos[1])] === "r") {
-    map[(currentPos[0], currentPos[1])] === "c";
+  // "O" = visited spot
+  // 'X' = not visited spot
+  // "R" = room
+  // "S" = Safe room
+  console.log(prevPos[0] + 'prevpos 0');
+  console.log(prevPos[1] + 'prevpos 1');
+  if(gameMap[prevPos[0]][prevPos[1]] != 'R'){
+    gameMap[prevPos[0]][prevPos[1]]='O';
   }
 
-  gameMap[newX, newY] = "P";
+  gameMap[newX][newY] = "P";
   renderTable(gameMap);
 
   
@@ -64,27 +63,44 @@ function renderTable(GameMap){
   }
 }
 function moveUp() {
-  prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
   currentPos[0] -= 1;
-  updateMap(currentPos[0] ,)
+  updateMap(currentPos[0] ,);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved up');
 }
 function moveDown() {
-    prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
+  currentPos[0] += 1;
+  updateMap(currentPos[0],);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved down');
 
-    currentPos[0] += 1;
-  updateMap(currentPos[0],)
 }
 function moveLeft() {
-    prevPos = currentPos;
+  prevPos[0] = currentPos[0];
+  prevPos[1] = currentPos[1];
+  currentPos[1] -= 1;
+  updateMap(currentPos[0],currentPos[1]);
+  decrementPlayerScore();
+  checkScore(getScore());
+  updateLog('You moved left');
 
-    currentPos[1] -= 1;
-  updateMap(currentPos[0],currentPos[1])
 }
 function moveRight() {
-    prevPos = currentPos;
-
+    prevPos[0] = currentPos[0];
+    prevPos[1] = currentPos[1];
     currentPos[1] += 1;
-    updateMap(currentPos[0],currentPos[1])
+    updateMap(currentPos[0],currentPos[1]);
+    decrementPlayerScore();
+    checkScore(getScore());
+    updateLog('You moved right');
+
+
 }
 
 

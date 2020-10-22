@@ -42,3 +42,6 @@ function checkRooms(numRooms){
         updateLog("You have "+numRooms+" enemies to defeat");
     }
 }
+function getScore(){
+    return playerScore;
+}
