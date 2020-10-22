@@ -99,8 +99,6 @@ function moveRight() {
     decrementPlayerScore();
     checkScore(getScore());
     updateLog('You moved right');
-
-
 }
 
 
