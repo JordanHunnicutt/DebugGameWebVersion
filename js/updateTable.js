@@ -8,10 +8,12 @@ let gameMap = [
 
 let currentPos = [2, 2];
 let prevPos = [2,2];
-
+const player1 = new Player(name); 
+const enemy1 = new Enemy();
 function initialize(){
   renderTable(gameMap);
   initializeConditions();
+  let name = prompt("What is your name?", " ");
 }
 
 function updateMap(newX = currentPos[0], newY = currentPos[1]) {
@@ -32,6 +34,10 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
   // else if(){
 
   // }
+  if(gameMap[newX][newY]==='R'){
+    
+    Battle(player1, enemy1);
+  }
   if(gameMap[newX][newY] != 'R'){
     if(gameMap[newX][newY] != 'S'){
       gameMap[newX][newY] = "P";
