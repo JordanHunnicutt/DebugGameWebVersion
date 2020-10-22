@@ -1,9 +1,9 @@
 let gameMap = [
-  ['X', 'X', "r", 'X', 'X'],
+  ['X', 'X', "R", 'X', 'X'],
   ['X', 'X', 'X', 'X', 'X'],
-  ["r", 'X', "P", 'X', "r"],
+  ["R", 'X', "P", 'X', "R"],
   ['X', 'X', 'X', 'X', 'X'],
-  ['X', 'X', "r", 'X', 'X'],
+  ['X', 'X', "R", 'X', 'X'],
 ];
 
 let currentPos = [2, 2];
@@ -22,11 +22,21 @@ function updateMap(newX = currentPos[0], newY = currentPos[1]) {
   // "S" = Safe room
   console.log(prevPos[0] + 'prevpos 0');
   console.log(prevPos[1] + 'prevpos 1');
-  if(gameMap[prevPos[0]][prevPos[1]] != 'R'){
+  console.log(gameMap[prevPos[0]][prevPos[1]]);
+  if(gameMap[prevPos[0]][prevPos[1]] === 'P'){
     gameMap[prevPos[0]][prevPos[1]]='O';
   }
+  else if(gameMap[prevPos[0]][prevPos[1]] === 'R'){
+    gameMap[prevPos[0]][prevPos[1]]='S';
+  }
+  // else if(){
 
-  gameMap[newX][newY] = "P";
+  // }
+  if(gameMap[newX][newY] != 'R'){
+    if(gameMap[newX][newY] != 'S'){
+      gameMap[newX][newY] = "P";
+    }
+  }
   renderTable(gameMap);
 
   
@@ -68,7 +78,6 @@ function moveUp() {
   currentPos[0] -= 1;
   updateMap(currentPos[0] ,);
   decrementPlayerScore();
-  checkScore(getScore());
   updateLog('You moved up');
 }
 function moveDown() {
@@ -77,7 +86,6 @@ function moveDown() {
   currentPos[0] += 1;
   updateMap(currentPos[0],);
   decrementPlayerScore();
-  checkScore(getScore());
   updateLog('You moved down');
 
 }
@@ -87,7 +95,6 @@ function moveLeft() {
   currentPos[1] -= 1;
   updateMap(currentPos[0],currentPos[1]);
   decrementPlayerScore();
-  checkScore(getScore());
   updateLog('You moved left');
 
 }
@@ -97,7 +104,6 @@ function moveRight() {
     currentPos[1] += 1;
     updateMap(currentPos[0],currentPos[1]);
     decrementPlayerScore();
-    checkScore(getScore());
     updateLog('You moved right');
 }
 
